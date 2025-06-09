@@ -5,7 +5,7 @@ import Input from '../form/Input'
 import Select from '../form/Select'
 import SubmitButton from '../form/SubmitButton'
 
-function ProjecForm({ handleSubmit, btnText, projectData}) {
+function ProjectForm({ handleSubmit, btnText, projectData}) {
 
     const [categories, setCategories] = useState([])
     const [project, setProject] = useState(projectData || {})
@@ -73,4 +73,4 @@ function ProjecForm({ handleSubmit, btnText, projectData}) {
     )
 }
 
-export default ProjecForm
+export default ProjectForm
