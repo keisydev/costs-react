@@ -19,8 +19,15 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 100,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "100",
+          "description": "teste 1",
+          "id": "f40f9174-fd43-40de-9c36-ed696c5acda5"
+        }
+      ]
     },
     {
       "id": "25bc",

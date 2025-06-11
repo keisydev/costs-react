@@ -69,6 +69,7 @@ function Project() {
     }
 
     function createService(project) {
+        setMessage('')
 
         const lastService = project.services[project.services.length - 1]
 
@@ -76,14 +77,31 @@ function Project() {
 
         const lastServiceCost = lastService.cost
 
+        //add service cost to project total cost
         const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
-
-        if(newCost > parseFloat(project.cost)) {
+        
+        if(newCost > parseFloat(project.budget)) {
             setMessage('Orçamento ultrapassado, verifique o valor do serviço')
             setType('error')
             project.services.pop()
             return false
         }
+
+        project.cost = newCost
+
+        //update project
+        fetch(`http://localhost:5000/projects/${project.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(project)
+            })
+            .then((resp) => resp.json())
+            .then((data) => {
+                console.log(data)
+            })
+            .catch(err => console.log(err) )
 
     }
 
