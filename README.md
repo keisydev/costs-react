@@ -50,4 +50,5 @@ Este projeto está sob a licença MIT.
 
 ---
 
-Feito com 💙 por [keisydev](https://github.com/keisydev)
+Feito com 💙 por [keisydev](https://github.com/keisydev) no curso de REACT do canal do Youtube Hora de codar.
+
