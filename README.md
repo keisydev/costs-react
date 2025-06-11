@@ -34,7 +34,7 @@ Este é um projeto de controle de custos desenvolvido com React. O objetivo prin
    npm start
    ```
 
-O aplicativo estará disponível em `http://localhost:3000`.
+O aplicativo estará disponível em https://keisydev.github.io/costs-react/.
 
 ## Estrutura de Pastas
 
