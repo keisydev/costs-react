@@ -2,11 +2,11 @@
   "projects": [
     {
       "id": "a97d",
-      "name": "keisy",
-      "budget": "5000",
+      "name": "Cost",
+      "budget": "5600",
       "category": {
-        "id": "1",
-        "name": "Infra"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": []
@@ -14,7 +14,7 @@
     {
       "id": "261c",
       "name": "local",
-      "budget": "500000",
+      "budget": "20000",
       "category": {
         "id": "4",
         "name": "Planejamento"
