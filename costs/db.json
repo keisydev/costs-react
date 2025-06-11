@@ -8,8 +8,21 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 1500,
+      "services": [
+        {
+          "name": "Dev PHP",
+          "cost": "500",
+          "description": "Criar a função de enviar e-mails",
+          "id": "7b155f41-e5c2-4398-ba39-f866b66039a9"
+        },
+        {
+          "name": "Dev Front end",
+          "cost": "1000",
+          "description": "Estruturar página web",
+          "id": "fadf1503-6919-4f0f-983c-b0a3264d18ee"
+        }
+      ]
     },
     {
       "id": "261c",
@@ -19,13 +32,19 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 100,
+      "cost": 200,
       "services": [
         {
           "name": "teste",
           "cost": "100",
           "description": "teste 1",
           "id": "f40f9174-fd43-40de-9c36-ed696c5acda5"
+        },
+        {
+          "name": "teste 2",
+          "cost": "100",
+          "description": "teste 2",
+          "id": "cad82956-10a3-4481-b22b-fd6ffe6e6938"
         }
       ]
     },
