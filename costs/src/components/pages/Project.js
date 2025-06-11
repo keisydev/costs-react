@@ -1,3 +1,5 @@
+import {parse, v4 as uuidv4} from 'uuid'
+
 import styles from './Project.module.css'
 
 import { useParams } from 'react-router-dom'
@@ -5,9 +7,10 @@ import { useState, useEffect } from 'react'
 
 import Loading from '../layout/Loading'
 import Container from '../layout/Container'
-
-import ProjectForm from '../project/ProjectForm'
 import Message from '../layout/Message'
+import ProjectForm from '../project/ProjectForm'
+import ServiceForm from '../Service/ServiceForm'
+
 
 function Project() {
 
@@ -65,6 +68,25 @@ function Project() {
 
     }
 
+    function createService(project) {
+
+        const lastService = project.services[project.services.length - 1]
+
+        lastService.id = uuidv4()
+
+        const lastServiceCost = lastService.cost
+
+        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+
+        if(newCost > parseFloat(project.cost)) {
+            setMessage('Orçamento ultrapassado, verifique o valor do serviço')
+            setType('error')
+            project.services.pop()
+            return false
+        }
+
+    }
+
     function toggleProjectForm() {
         setShowProjectForm(!showProjectform)
     }
@@ -110,11 +132,11 @@ function Project() {
                             {!showServiceForm ? 'Adicionar serviço' : 'Fechar'}
                         </button>
                         <div className={styles.project_info}>
-                            {showServiceForm && (
-                                <div>
-                                    formulário de serviços
-                                </div>
-                             )}
+                            {showServiceForm && (<ServiceForm
+                                handleSubmit={createService}
+                                btnText='Adicionar serviço'
+                                projectData={project}
+                            />)}
                         </div>
                     </div>
                     <h2>Serviços</h2>
