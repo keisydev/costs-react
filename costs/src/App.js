@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid' //  Importar para gerar IDs únicos
+import Dashboard from './components/pages/Dashboard'
 
 // Importar os dados mockados aqui
 import { projectsData } from '../src/src/mock/db.js'
@@ -57,7 +58,8 @@ function App() {
       <Container customClass='min-height'>
         <Routes>
           {/*O estado e as funções são passados como props para as rotas */}
-          <Route path='/' element={<Home projects={projects} />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/dashboard' element={<Dashboard projects={projects} />} />
           <Route path='/projects' element={<Projects projects={projects} handleRemove={removeProject} />} />
           <Route path='/company' element={<Company />} />
           <Route path='/contact' element={<Contact />} />

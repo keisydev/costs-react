@@ -47,3 +47,8 @@
     width: 100%;
     margin-top: 1em;
 }
+
+.actions_header {
+    display: flex;
+    gap: 1em;
+}

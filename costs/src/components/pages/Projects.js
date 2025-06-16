@@ -65,7 +65,10 @@ function Projects({ projects, handleRemove }) {
     <div className={styles.project_container}>
       <div className={styles.title_container}>
         <h1>Meus Projetos</h1>
-        <LinkButton to="/newproject" text="Criar projeto" />
+        <div className={styles.actions_header}>
+          <LinkButton to='/dashboard' text='Ver Dashboard' />
+          <LinkButton to='/newproject' text='Criar projeto' />
+         </div>
       </div>
 
       {message && <Message type="success" msg={message} />}
@@ -92,7 +95,6 @@ function Projects({ projects, handleRemove }) {
           ))}
         </div>
       </div>
-
       <Container customClass="start">
         {filteredProjects.length > 0 ? (
           filteredProjects.map((project) => (

@@ -1,77 +1,17 @@
-import { useMemo } from 'react'
 import styles from './Home.module.css'
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import savings from '../../img/savings.svg'
+import LinkButton from '../layout/LinkButton'
 
-//  Recebe 'projects' como prop do App.js
-function Home({ projects }) {
-
-  // Lógica para processar os dados para o gráfico de pizza (Orçamento por Categoria)
-  const budgetByCategory = useMemo(() => {
-    const categoryData = {}
-    projects.forEach(p => {
-      const categoryName = p.category?.name || 'Sem Categoria'
-      const budget = parseFloat(p.budget)
-      if (!categoryData[categoryName]) {
-        categoryData[categoryName] = 0
-      }
-      categoryData[categoryName] += budget
-    })
-    return Object.keys(categoryData).map(key => ({ name: key, value: categoryData[key] }))
-  }, [projects])
-
-  // Lógica para processar os dados para o gráfico de barras (Orçamento vs Custo)
-  const budgetVsCost = useMemo(() => {
-    return projects.map(p => ({
-      name: p.name,
-      Orçamento: parseFloat(p.budget),
-      Custo: parseFloat(p.cost),
-    }))
-  }, [projects])
-
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF']
-
-  return (
-    <section className={styles.home_container}>
-      <h1>Dashboard de Projetos</h1>
-      <p>Acompanhe o status dos seus projetos de forma visual.</p>
-      
-      {projects.length > 0 ? (
-        <div className={styles.charts_container}>
-          <div className={styles.chart}>
-            <h2>Orçamento por Categoria</h2>
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie data={budgetByCategory} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} fill="#8884d8" label>
-                  {budgetByCategory.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip formatter={(value) => new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' }).format(value)} />
-                <Legend />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className={styles.chart}>
-            <h2>Orçamento vs. Custo por Projeto</h2>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={budgetVsCost} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" tick={{ fontSize: 12 }} />
-                <YAxis tickFormatter={(value) => `€${value / 1000}k`} />
-                <Tooltip formatter={(value) => new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' }).format(value)} />
-                <Legend />
-                <Bar dataKey="Orçamento" fill="#8884d8" />
-                <Bar dataKey="Custo" fill="#82ca9d" />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      ) : (
-        <p>Ainda não há projetos para exibir no dashboard. Crie seu primeiro projeto!</p>
-      )}
-    </section>
-  )
+function Home(){
+    return(
+        <section className={styles.home_container}>
+            <h1>Bem-vindo ao <span>Costs</span></h1>
+            <p>Comece a gerenciar os seus projetos agora mesmo</p>
+            <LinkButton to='/newproject' text='Criar projeto' />
+            <img src={savings} alt='Costs'/>
+        </section>
+    )
+    
 }
 
 export default Home
