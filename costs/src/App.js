@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid' //  Importar para gerar IDs únicos
 
 // Importar os dados mockados aqui
-import { projectsData } from './mock/db.js'
+import { projectsData } from '../src/src/mock/db.js'
 
 import Navbar from './components/layout/Navbar'
 import Home from './components/pages/Home'
