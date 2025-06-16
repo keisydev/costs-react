@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 // Importa os dados das categorias do arquivo local
-import { categoriesData } from '../../mock/db.js'
+import { categoriesData } from '../../src/mock/db.js'
 
 import styles from './ProjectForm.module.css'
 import Input from '../form/Input'

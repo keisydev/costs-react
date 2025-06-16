@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 // Importa os dados dos projetos do arquivo local
-import { projectsData } from '../../mock/db.js'
+import { projectsData } from '../../src/mock/db.js'
 
 import Message from '../layout/Message'
 import Container from '../layout/Container'
