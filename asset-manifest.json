@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/costs-react/static/css/main.4cb66500.css",
-    "main.js": "/costs-react/static/js/main.dd0745d2.js",
+    "main.css": "/costs-react/static/css/main.62caf12f.css",
+    "main.js": "/costs-react/static/js/main.62d58eb7.js",
     "static/media/company.jpg": "/costs-react/static/media/company.66f3c8511d4307274706.jpg",
+    "static/media/savings.svg": "/costs-react/static/media/savings.25a5174d3c0ce57522d68f3ba58b7407.svg",
     "index.html": "/costs-react/index.html",
     "static/media/loading.svg": "/costs-react/static/media/loading.5ff8599871e56a8a672f0861a01ef3bc.svg",
-    "main.4cb66500.css.map": "/costs-react/static/css/main.4cb66500.css.map",
-    "main.dd0745d2.js.map": "/costs-react/static/js/main.dd0745d2.js.map"
+    "main.62caf12f.css.map": "/costs-react/static/css/main.62caf12f.css.map",
+    "main.62d58eb7.js.map": "/costs-react/static/js/main.62d58eb7.js.map"
   },
   "entrypoints": [
-    "static/css/main.4cb66500.css",
-    "static/js/main.dd0745d2.js"
+    "static/css/main.62caf12f.css",
+    "static/js/main.62d58eb7.js"
   ]
 }
