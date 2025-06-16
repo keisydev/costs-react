@@ -1,31 +1,47 @@
 .home_container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4em
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
 }
 
 .home_container h1 {
-    font-size: 2.5em;
-    margin-bottom: .5em;
-
-}
-
-.home_container h1 span {
-    color: #ffbb33;
-    padding: 0 .2em;
-    background-color: #222;
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
 }
 
 .home_container p {
-    margin-bottom: 1.5em;
-    color: #7b7b7b;
-
+  margin-bottom: 2em;
+  color: #7b7b7b;
 }
 
-.home_container img {
-    width: 350px;
-    margin: 2em 0;
+.charts_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.chart {
+  width: 100%;
+  padding: 1.5em;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.chart h2 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  color: #333;
+}
+
+/* Deixa os gráficos lado a lado em telas maiores */
+@media (min-width: 992px) {
+  .charts_container {
+    grid-template-columns: 1fr 1fr;
+  }
 }

@@ -57,7 +57,7 @@ function App() {
       <Container customClass='min-height'>
         <Routes>
           {/*O estado e as funções são passados como props para as rotas */}
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home projects={projects} />} />
           <Route path='/projects' element={<Projects projects={projects} handleRemove={removeProject} />} />
           <Route path='/company' element={<Company />} />
           <Route path='/contact' element={<Contact />} />
