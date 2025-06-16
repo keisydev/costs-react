@@ -1,6 +1,15 @@
 import styles from './ProjectCards.module.css'
 import { Link } from 'react-router-dom'
 import { BsPencil, BsFillTrashFill } from 'react-icons/bs'
+import { motion } from 'framer-motion'
+
+const cardVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+}
 
 //  A prop 'handleRemove' agora se chama 'onDeleteRequest'
 function ProjectCards({ id, name, budget, category, onDeleteRequest }) {
@@ -12,7 +21,7 @@ function ProjectCards({ id, name, budget, category, onDeleteRequest }) {
   }
 
   return (
-    <div className={styles.project_card}>
+    <motion.div className={styles.project_card} variants={cardVariants}>
       <h4>{name}</h4>
       <p>
         <span>Orçamento:</span> {budget}€
@@ -28,8 +37,8 @@ function ProjectCards({ id, name, budget, category, onDeleteRequest }) {
           <BsFillTrashFill /> Excluir
         </button>
       </div>
-    </div>
-  )
+    </motion.div>
+  );
 }
 
 export default ProjectCards

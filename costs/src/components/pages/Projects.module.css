@@ -72,3 +72,10 @@
     width: auto; /* Permite que os botões e o input fiquem na mesma linha */
   }
 }
+.project_list_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1em; 
+    width: 100%;
+}

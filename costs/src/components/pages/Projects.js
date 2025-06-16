@@ -7,6 +7,18 @@ import LinkButton from '../layout/LinkButton'
 import styles from './Projects.module.css'
 import ProjectCards from '../project/ProjectCards'
 import Modal from '../layout/Modal' // Importar o novo componente Modal
+import { motion } from 'framer-motion'
+
+const containerVariants = {
+  hidden: { opacity: 1 }, // Começa visível
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.1, // Atraso antes de começar a animar os filhos
+      staggerChildren: 0.1, // Intervalo entre a animação de cada filho
+    },
+  },
+}
 
 function Projects({ projects, handleRemove }) {
   const [projectMessage, setProjectMessage] = useState('')
@@ -95,7 +107,12 @@ function Projects({ projects, handleRemove }) {
           ))}
         </div>
       </div>
-      <Container customClass="start">
+      <motion.div
+        className={styles.project_list_container} // Uma nova classe para o container dos cards
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {filteredProjects.length > 0 ? (
           filteredProjects.map((project) => (
             <ProjectCards
@@ -104,16 +121,14 @@ function Projects({ projects, handleRemove }) {
               budget={project.budget}
               category={project.category?.name || 'Sem Categoria'}
               key={project.id}
-              //Passa a nova função para o card
               onDeleteRequest={handleDeleteRequest} 
             />
           ))
         ) : (
           <p>Nenhum projeto encontrado com os filtros aplicados.</p>
         )}
-      </Container>
+      </motion.div>
       
-      {/* Renderiza o Modal no final */}
       <Modal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
@@ -125,7 +140,7 @@ function Projects({ projects, handleRemove }) {
         <p>Esta ação não poderá ser desfeita.</p>
       </Modal>
     </div>
-  )
+  );
 }
 
 export default Projects
