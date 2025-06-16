@@ -1,5 +1,5 @@
 // src/mock/db.js
-export const projects = [
+export const projectsData = [
   {
     "id": 1,
     "name": "Desenvolvimento de Website",

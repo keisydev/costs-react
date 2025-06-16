@@ -1,54 +1,54 @@
-import { v4 as uuidv4 } from 'uuid';
-import styles from './Project.module.css';
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid'
+import styles from './Project.module.css'
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 // Importar os dados mockados em vez de buscar na rede.
-import { projectsData } from '../mock/mockDatabase';
+import { projectsData } from '../../src/mock/db.js'
 
-import Loading from '../layout/Loading';
-import Container from '../layout/Container';
-import Message from '../layout/Message';
-import ProjectForm from '../project/ProjectForm';
-import ServiceForm from '../Service/ServiceForm';
-import ServiceCard from '../Service/ServiceCard';
+import Loading from '../layout/Loading'
+import Container from '../layout/Container'
+import Message from '../layout/Message'
+import ProjectForm from '../project/ProjectForm'
+import ServiceForm from '../Service/ServiceForm'
+import ServiceCard from '../Service/ServiceCard'
 
 function Project() {
-    const { id } = useParams();
+    const { id } = useParams()
     
     const [project, setProject] = useState(null); //  Iniciar com null para facilitar a lógica de loading.
     const [services, setServices] = useState([]);
-    const [showProjectform, setShowProjectForm] = useState(false);
-    const [showServiceForm, setShowServiceForm] = useState(false);
-    const [message, setMessage] = useState();
-    const [type, setType] = useState();
+    const [showProjectform, setShowProjectForm] = useState(false)
+    const [showServiceForm, setShowServiceForm] = useState(false)
+    const [message, setMessage] = useState()
+    const [type, setType] = useState()
 
     useEffect(() => {
         setTimeout(() => {
             // procuramos o projeto no nosso array mockado
-            const currentProject = projectsData.find((p) => p.id === id);
+            const currentProject = projectsData.find((p) => p.id === id)
             
             if (currentProject) {
-                setProject(currentProject);
-                setServices(currentProject.services);
+                setProject(currentProject)
+                setServices(currentProject.services)
             }
-        }, 400);
-    }, [id]);
+        }, 400)
+    }, [id])
 
     function editPost(updatedProject) {
-        setMessage('');
+        setMessage('')
 
         if (updatedProject.budget < updatedProject.cost) {
-            setMessage('O orçamento não pode ser menor que o custo do projeto!');
-            setType('error');
-            return false;
+            setMessage('O orçamento não pode ser menor que o custo do projeto!')
+            setType('error')
+            return false
         }
 
         // Atualiza o estado diretamente.
-        setProject(updatedProject);
-        setShowProjectForm(false);
-        setMessage('Projeto atualizado!');
-        setType('success');
+        setProject(updatedProject)
+        setShowProjectForm(false)
+        setMessage('Projeto atualizado!')
+        setType('success')
     }
 
     function createService(project) {
@@ -70,38 +70,38 @@ function Project() {
 
         // Atualiza o estado diretamente.
         // Usa spread `...` para garantir que o React detecte a mudança no objeto.
-        setProject({ ...project });
-        setServices(project.services);
-        setShowServiceForm(false);
-        setMessage('Serviço adicionado!');
-        setType('success');
+        setProject({ ...project })
+        setServices(project.services)
+        setShowServiceForm(false)
+        setMessage('Serviço adicionado!')
+        setType('success')
     }
 
     function removeService(id, cost) {
-        setMessage('');
+        setMessage('')
 
         const servicesUpdated = project.services.filter(
             (service) => service.id !== id
         );
 
-        const projectUpdated = { ...project }; // Cria uma cópia para não modificar o estado diretamente
+        const projectUpdated = { ...project } // Cria uma cópia para não modificar o estado diretamente
 
-        projectUpdated.services = servicesUpdated;
-        projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost);
+        projectUpdated.services = servicesUpdated
+        projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
 
         //  Atualiza o estado diretamente.
         setProject(projectUpdated);
         setServices(servicesUpdated);
-        setMessage('Serviço removido com sucesso');
-        setType('success');
+        setMessage('Serviço removido com sucesso')
+        setType('success')
     }
 
     function toggleProjectForm() {
-        setShowProjectForm(!showProjectform);
+        setShowProjectForm(!showProjectform)
     }
 
     function toggleServiceForm() {
-        setShowServiceForm(!showServiceForm);
+        setShowServiceForm(!showServiceForm)
     }
     
     return (
@@ -165,4 +165,4 @@ function Project() {
     );
 }
 
-export default Project;
+export default Project
