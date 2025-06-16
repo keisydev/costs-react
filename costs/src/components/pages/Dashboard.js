@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import styles from './Dashboard.module.css'
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import LinkButton from '../layout/LinkButton'
 
 function Dashboard({ projects }) { 
   const budgetByCategory = useMemo(() => {
@@ -28,11 +29,19 @@ function Dashboard({ projects }) {
 
   return (
     <section className={styles.dashboard_container}>
-      <h1>Dashboard de Projetos</h1>
-      <p>Acompanhe o status dos seus projetos de forma visual.</p>
-
+      <div className={styles.header}>
+        <div className={styles.header_actions}>
+            <LinkButton to="/projects" text="‹ Voltar aos Projetos" />
+        </div>
+        <div className={styles.header_title}>
+            <h1>Dashboard de Projetos</h1>
+            <p>Acompanhe o status dos seus projetos de forma visual.</p>
+        </div>
+      </div>
+      
       {projects.length > 0 ? (
         <div className={styles.charts_container}>
+         {/* ... (o conteúdo dos seus gráficos continua aqui, sem alterações) ... */}
           <div className={styles.chart}>
             <h2>Orçamento por Categoria</h2>
             <ResponsiveContainer width="100%" height={300}>

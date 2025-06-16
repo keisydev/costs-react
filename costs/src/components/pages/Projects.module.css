@@ -4,9 +4,11 @@
 }
 
 .title_container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 2em;
 }
 
 .filter_container {
@@ -57,6 +59,10 @@
   border-color: #ffbb33;
 }
 
+.actions_header {
+    display: flex;
+    gap: 1em;
+}
 /* Adiciona responsividade para telas menores */
 @media (min-width: 768px) {
   .filter_container {
