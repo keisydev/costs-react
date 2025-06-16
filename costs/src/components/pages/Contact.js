@@ -11,10 +11,10 @@ function Contact() {
           <FaEnvelope /> <span>contato@costs.com</span>
         </li>
         <li>
-          <FaPhone /> <span>(11) 99999-8888</span>
+          <FaPhone /> <span>(+351) 99999-8888</span>
         </li>
         <li>
-          <FaMapMarkerAlt /> <span>Rua dos Projetos, 123 - São Paulo, SP</span>
+          <FaMapMarkerAlt /> <span>Rua dos Projetos, 123 - Lisboa, Portugal</span>
         </li>
       </ul>
     </div>
