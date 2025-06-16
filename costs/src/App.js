@@ -54,7 +54,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Container customClass='min-height center'>
+      <Container customClass='min-height'>
         <Routes>
           {/*O estado e as funções são passados como props para as rotas */}
           <Route path='/' element={<Home />} />
