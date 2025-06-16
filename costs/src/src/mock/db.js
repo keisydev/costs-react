@@ -1,5 +1,25 @@
 // src/mock/db.js
+export const categoriesData = [
+  {
+    "id": "1",
+    "name": "Infra"
+  },
+  {
+    "id": "2",
+    "name": "Desenvolvimento"
+  },
+  {
+    "id": "3",
+    "name": "Design"
+  },
+  {
+    "id": "4",
+    "name": "Planejamento"
+  }
+];
+
 export const projectsData = [
+
   {
     "id": 1,
     "name": "Desenvolvimento de Website",
